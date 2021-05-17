@@ -38,17 +38,21 @@ public class Homework3 {
 
         String lowTemp = driver.findElement(By.xpath("//span[@class='low-temp-text']")).getText();
 
-        driver.close();
+        String feelLikeTempNum = feelLikeTemp.substring(0,feelLikeTemp.length()-1);
+        String highTempNum = highTemp.substring(0,highTemp.length()-1);
+        String lowTempNum = lowTemp.substring(0,lowTemp.length()-1);
 
-        int feelLikeTempInt = Integer.valueOf(feelLikeTemp);
-        int highTempInt = Integer.valueOf(highTemp);
-        int lowTempInt = Integer.valueOf(lowTemp);
+        int feelLikeTempInt = Integer.valueOf(feelLikeTempNum);
+        int highTempInt = Integer.valueOf(highTempNum);
+        int lowTempInt = Integer.valueOf(lowTempNum);
 
 
 
         if (feelLikeTempInt>=lowTempInt && feelLikeTempInt<=highTempInt){
             System.out.println("feelsLike temp verified");
         }
+
+        driver.close();
 
     }
 
@@ -89,7 +93,6 @@ public class Homework3 {
 
         String tempCelsius = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/span[1]/span[2]/span[1]")).getText();
 
-        driver.close();
 
         int tempFahrenheitInt = Integer.valueOf(tempFahrenheit);
         int tempCelsiusInt = Integer.valueOf(tempCelsius);
@@ -98,7 +101,7 @@ public class Homework3 {
             System.out.println("Correct Temperature Displayed");
         }
 
-
+        driver.close();
 
     }
 
