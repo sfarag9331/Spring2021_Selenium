@@ -4,8 +4,6 @@ import Pages.WebCommands;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.openqa.selenium.By.linkText;
@@ -364,12 +362,20 @@ public class Homepage extends WebCommands {
         clickThis(xpath("//div/button[@aria-label='submit button to continue']"));
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(7000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         clickThis(By.xpath("//span[@class='notification-close']"));
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        clickHomepage();
 
         try {
             Thread.sleep(1000);
