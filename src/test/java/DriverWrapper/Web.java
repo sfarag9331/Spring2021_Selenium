@@ -16,11 +16,12 @@ public class Web {
 
     @Before
     public void openUrl() {
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://clubs3qa1.scholastic.com/home");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(TestConstant.tenSeconds, TimeUnit.SECONDS);
+
     }
 
     public void openUrl2(String url) {
@@ -29,6 +30,11 @@ public class Web {
         driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(TestConstant.tenSeconds, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -38,6 +44,11 @@ public class Web {
 
     @After
     public void quitPages() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
 
